@@ -1,6 +1,7 @@
-function loadHello(){
-    alert("Hello!");
-}
+// function loadHello(){
+//     alert("Hello!");
+// }
+
 
 function sum(){
     let x = 3;
