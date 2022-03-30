@@ -1,27 +1,27 @@
-let username;
-let userresult;
+const username = prompt("お名前を教えて下さい。");
+const nameElement = document.getElementById("name");
 
-username = prompt("お名前を教えて下さい。");
 if (username) {
-    document.getElementById("name").innerHTML = username;
+    nameElement.innerHTML = username;
 } else {
-    document.getElementById("name").innerHTML = "名無し";
+    nameElement.innerHTML = "名無し";
 }
 
-let rand = Math.floor(Math.random() * 5);
-if (rand == 0) {
-    userresult = "大吉";
+
+const omikujiList = [
+    {num: 0, fortune: "大吉"},
+    {num: 1, fortune: "中吉"},
+    {num: 2, fortune: "小吉"},
+    {num: 3, fortune: "吉"},
+    {num: 4, fortune: "凶"},
+];
+
+const rand = {
+    num: Math.floor(Math.random() * 5)
+};
+
+const userResult = rand => {
+    const fortune = omikujiList.find(p => p.num === rand.num).fortune;
+    return fortune;
 }
-if (rand == 1) {
-    userresult = "中吉";
-}
-if (rand == 2) {
-    userresult = "小吉";
-}
-if (rand == 3) {
-    userresult = "吉";
-}
-if (rand == 4) {
-    userresult = "凶";
-}
-document.getElementById("result").innerHTML = userresult;
+document.getElementById("result").innerHTML = userResult(rand);
